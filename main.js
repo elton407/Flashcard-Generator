@@ -25,8 +25,8 @@ var clozeCards = [];
 var myBasicCards = new BasicCard();
 var myClozeCards = new ClozeCard();
 
-function chooser(choice){
-	if (choice === "basic"){
+function chooser(){
+	if ( answer === "basic"){
 		// console.log("Follow me down the basic path.");
 		// getBasicCardData();
 		myBasicCards.getUserInput();
@@ -34,7 +34,7 @@ function chooser(choice){
 			console.log(basicCards[i])
 		}
 		
-	} else if(choice === "cloze"){
+	} else if(answer === "cloze"){
 		// console.log("Follow me down the cloze path");
 		myClozeCards.getUserInput();
 	}

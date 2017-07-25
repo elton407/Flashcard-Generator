@@ -1,7 +1,7 @@
 var inquirer = require("inquirer");
 var fs = require("fs");
 
-var questionArray = [];
+
 var loop = 1 ;
 var count = 0;
 
@@ -13,33 +13,27 @@ function BasicCard(front, back) {
   this.front = front;
 
   this.back = back;
-  this.getUserInput = function () {
-
-  	if (loop <= 5) {
+}
 
   		inquirer.prompt([{
-				name: "question",
-				message: "Enter a question for the front of card number " + loop + "." 
+				type: "input",
+				name: "front",
+				message: "Ask a question" 
 			},{ 
-				name: "correctAnswer",
-				message: "Enter the answer to the question"
+				type: "input",
+				name: "back",
+				message:"What is the answer "
 
 			}]).then(function(answers){ 
 				question = answers.question;
 				answer = answers.correctAnswer;
 
-				var newCard = new BasicCard (question, answer);
-				questionArray.push(newCard);
-				loop ++;
-				newCard.getUserInput();
+				var newCard = new BasicCard (answers.front, answers.back);
+				console.log(newCard);
 		}) 
 
-  	}
+  	
 
-
-  }
-
-}
 
 
 module.exports = BasicCard;
